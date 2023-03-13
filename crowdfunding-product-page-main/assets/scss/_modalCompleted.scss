@@ -1,0 +1,89 @@
+@use "color" as *;
+@use "mq" as *;
+.modalCompleted {
+  position: fixed;
+  top: 141px;
+  width: min(100% - 48px, 449px);
+  background-color: $white;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 34px 21px 42px;
+  box-shadow: 3px 6px 6px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  opacity: 0;
+  pointer-events: none;
+  @include mq {
+    padding: 49px 43px;
+    top: 12%;
+  }
+  &.active {
+    animation: popup 0.9s ease-in-out forwards;
+
+    @keyframes popup {
+      50% {
+        transform: translateX(-50%) scale(1.1);
+        transform-origin: center;
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-50%) scale(1);
+        transform-origin: center;
+        opacity: 1;
+        pointer-events: initial;
+      }
+    }
+  }
+  img {
+    width: 63px;
+    height: 63px;
+    display: block;
+    margin-inline: auto;
+    margin-bottom: 24px;
+    @include mq {
+      width: 89px;
+      height: 89px;
+      margin-bottom: 48px;
+    }
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 18.0652px;
+    text-align: center;
+    margin-bottom: 24.84px;
+    @include mq {
+      font-size: 24.0284px;
+      margin-bottom: 16px;
+    }
+  }
+  p {
+    font-weight: 400;
+    font-size: 13.9828px;
+    line-height: 171.8%;
+    color: $darkGray;
+    margin-bottom: 30.68px;
+    text-align: center;
+    @include mq {
+      font-size: 15.9803px;
+      line-height: 187.3%;
+    }
+  }
+  button {
+    display: block;
+    margin-inline: auto;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    font-size: 14.4171px;
+    color: $white;
+    background-color: $moderateCyan;
+    padding: 15px 33px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    &:hover {
+      @include mq {
+        background-color: $darkCyan;
+      }
+    }
+  }
+}

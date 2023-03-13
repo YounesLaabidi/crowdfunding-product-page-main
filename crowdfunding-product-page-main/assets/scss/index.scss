@@ -1,0 +1,411 @@
+@forward "default";
+@forward "modalContainer";
+@forward "modalCompleted";
+@use "color" as *;
+@use "mq" as *;
+body {
+  background-color: lighten($darkGray, 50%);
+}
+header {
+  background: url(../images/image-hero-mobile.jpg) no-repeat center center;
+  background-size: cover;
+  height: 300px;
+  @include mq {
+    background-image: url(../images/image-hero-desktop.jpg);
+    height: 400px;
+  }
+}
+nav {
+  padding-top: 25px;
+  width: min(100% - 50px, 1108px);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include mq {
+    padding-top: 42px;
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 25.6369px;
+    color: $white;
+    cursor: default;
+    @include mq {
+      font-size: 25.2394px;
+    }
+  }
+  .nav-list {
+    width: min(100% - 48px);
+    margin-inline: auto;
+    position: absolute;
+    background-color: hsl(0deg, 0%, 100%);
+    top: 88px;
+    border-radius: 9px;
+    z-index: 1;
+    left: 50%;
+    box-shadow: 5px 6px 8px rgba(0, 0, 0, 0.25);
+    transform: translate(-50%, -400px);
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    @include mq {
+      width: initial;
+      margin-inline: 0;
+      position: static;
+      background-color: initial;
+      border-radius: 0;
+      z-index: initial;
+      box-shadow: unset;
+      transform: none;
+      opacity: 1;
+      transition: none;
+      display: flex;
+      gap: 33px;
+    }
+    &.active {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+    li {
+      display: inline-block;
+      padding: 23.62px 0 24.38px 24px;
+      width: 100%;
+      @include mq {
+        display: inline;
+        padding: unset;
+        width: fit-content;
+      }
+      &:not(:last-child) {
+        border-bottom: 0.5px solid hsla(0, 0%, 68%, 0.278);
+        border: none;
+      }
+      a,
+      a:visited {
+        font-weight: 700;
+        font-size: 18.1167px;
+        line-height: 22px;
+        color: $black;
+        @include mq {
+          color: $white;
+          font-size: 12.8861px;
+        }
+      }
+    }
+  }
+  img {
+    height: 15px;
+    width: 16px;
+    cursor: pointer;
+    @include mq {
+      display: none;
+    }
+  }
+}
+// MAIN
+main {
+  transform: translateY(-56px);
+}
+main .mainContainer {
+  width: min(100% - 50px, 728px);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.mainContainer {
+  position: relative;
+}
+.mainContainer .containerOne {
+  background-color: $white;
+  padding: 51.59px 25px 40px;
+  border-radius: 10px;
+  @include mq {
+    padding: 53.32px 48px 48px;
+  }
+  img[alt="logo-mastercraft"] {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 19.9056px;
+    text-align: center;
+    color: $black;
+    margin-bottom: 17.41px;
+    @include mq {
+      font-size: 28.1081px;
+    }
+  }
+  p {
+    font-weight: 400;
+    font-size: 13.9809px;
+    line-height: 164.3%;
+    text-align: center;
+    color: $darkGray;
+    margin-bottom: 25px;
+    @include mq {
+      font-size: 16.0105px;
+    }
+  }
+  p + div {
+    display: inline-block;
+    background: $moderateCyan;
+    border: none;
+    outline: unset;
+    color: $white;
+    font-weight: 700;
+    font-size: 16.1301px;
+    padding: 18px 30px;
+    border-radius: 27.7475px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    &:hover {
+      @include mq {
+        background-color: $darkCyan;
+      }
+    }
+  }
+  .bookmark {
+    background: transparent;
+    float: right;
+    border: none;
+    outline: none;
+    display: inline-block;
+    line-height: 1;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    transition: opacity 0.4s ease-in-out;
+    &:hover {
+      opacity: 0.7;
+    }
+    @include mq {
+      width: 171px;
+      height: 56px;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      background-color: lighten($color: $darkGray, $amount: 45%);
+      border-radius: 27px;
+    }
+    span {
+      display: none;
+      @include mq {
+        display: inline;
+        font-weight: 700;
+        font-size: 15.931px;
+        color: $darkGray;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      @include mq {
+        width: 56px;
+        height: 56px;
+      }
+    }
+  }
+}
+.mainContainer .containerTwo {
+  background-color: $white;
+  text-align: center;
+  padding: 31px 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 10px;
+  @include mq {
+    text-align: left;
+    flex-wrap: wrap;
+    padding: 45.31px 46px 48px;
+    row-gap: 37px;
+    column-gap: 120px;
+    flex-direction: row;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 32.069px;
+    line-height: 39px;
+    padding-bottom: 10px;
+    @include mq {
+      font-size: 32.069px;
+    }
+  }
+  p {
+    font-weight: 500;
+    font-size: 14.1155px;
+    line-height: 17px;
+    color: $darkGray;
+    position: relative;
+    padding-bottom: 24px;
+    @include mq {
+      padding-bottom: unset;
+    }
+  }
+  .progressBar {
+    width: min(80%, 634px);
+    height: 12px;
+    background-color: lighten($darkGray, 40%);
+    margin-inline: auto;
+    border-radius: 6px;
+    @include mq {
+      width: 100%;
+    }
+    &__progress {
+      width: 70%;
+      height: 100%;
+      background-color: $moderateCyan;
+      border-radius: 6px;
+    }
+  }
+}
+.containerTwo div:not(:nth-child(3)) p::after {
+  content: "";
+  height: 1px;
+  width: 81px;
+  background-color: #d9d9d9;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  @include mq {
+    width: 1px;
+    height: 64px;
+    transform: translateY(-50%);
+    left: unset;
+    top: -50%;
+    right: -80px;
+  }
+}
+.containerThree {
+  padding: 39px 25px 125px;
+  background-color: $white;
+  border-radius: 10px;
+  @include mq {
+    padding: 46.93px 53px 48px 47px;
+  }
+  > h3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 25px;
+    @include mq {
+      font-size: 19.8px;
+    }
+  }
+  > p {
+    font-weight: 400;
+    font-size: 13.9937px;
+    line-height: 173.8%;
+    margin-bottom: 33px;
+    color: $darkGray;
+    @include mq {
+      font-size: 16.0685px;
+      line-height: 186.3%;
+      margin-bottom: 42px;
+    }
+    &:not(:nth-child(odd)) {
+      margin-bottom: 25px;
+      @include mq {
+        margin-bottom: 28px;
+      }
+    }
+  }
+}
+.containerThree__card {
+  padding: 25px 20px 24px 24px;
+  border: 1px solid $darkGray;
+  border-radius: 10px;
+  @include mq {
+    padding: 37.54px 31px 31px;
+    position: relative;
+  }
+  &:not(:last-child) {
+    margin-bottom: 22px;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 14.0741px;
+    line-height: 17px;
+    padding-bottom: 8px;
+    @include mq {
+      font-size: 18.0741px;
+      padding-bottom: 0;
+    }
+  }
+  h4 {
+    font-weight: 500;
+    font-size: 14.0518px;
+    line-height: 17px;
+    color: $moderateCyan;
+    padding-bottom: 24px;
+    @include mq {
+      font-size: 15.1942px;
+      padding-bottom: 0;
+      position: absolute;
+      top: 37.54px;
+      right: 31px;
+    }
+  }
+  p {
+    font-weight: 400;
+    font-size: 14.1688px;
+    line-height: 170.3%;
+    color: $darkGray;
+    margin-bottom: 25px;
+    @include mq {
+      font-size: 16.0378px;
+      line-height: 179.8%;
+      margin: 24.46px 0 31px;
+    }
+  }
+  h5 {
+    font-weight: 700;
+    font-size: 31.5789px;
+    line-height: 39px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    @include mq {
+      font-size: 31.5789px;
+      margin-bottom: 0;
+    }
+    span {
+      font-weight: 500;
+      font-size: 14.5516px;
+      line-height: 18px;
+      padding-left: 9px;
+      color: $darkGray;
+      @include mq {
+        font-size: 14.5516px;
+      }
+    }
+  }
+  button {
+    border: none;
+    outline: none;
+    line-height: 1;
+    padding: 15px 32px;
+    background-color: $moderateCyan;
+    color: $white;
+    font-weight: 700;
+    font-size: 14.0637px;
+    line-height: 17px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    &:hover {
+      background-color: $darkCyan;
+    }
+    @include mq {
+      font-size: 14.0637px;
+      position: absolute;
+      bottom: 27px;
+      right: 31px;
+    }
+  }
+}

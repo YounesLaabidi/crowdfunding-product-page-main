@@ -1,0 +1,308 @@
+@use "color" as *;
+@use "mq" as *;
+.modelContainer {
+  width: min(100% - 48px, 905px);
+  background-color: $white;
+  position: absolute;
+  --top: 184px;
+  top: var(--top);
+  padding: 31.92px 24px 30px;
+  border-radius: 10px;
+  box-shadow: 8px 5px 14px 1px #00000061;
+  margin-inline: auto;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  opacity: 0;
+  transform: translateX(-200%);
+  left: 50%;
+  pointer-events: none;
+  @include mq {
+    padding: 48px 47px 50px;
+    pointer-events: initial;
+  }
+  &.active {
+    transform: translateX(-50%);
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+.modelContainer {
+  > img {
+    position: absolute;
+    top: 36px;
+    right: 23.64px;
+    cursor: pointer;
+    @include mq {
+      top: 31px;
+      right: 30.64px;
+    }
+  }
+  > h2 {
+    font-weight: 700;
+    font-size: 17.9703px;
+    padding-bottom: 24.08px;
+    @include mq {
+      font-size: 24.0906px;
+      margin-bottom: 16.56px;
+    }
+  }
+  > p {
+    font-weight: 400;
+    font-size: 13.9765px;
+    line-height: 172.8%;
+    margin-bottom: 24px;
+    color: $darkGray;
+    @include mq {
+      font-size: 16.0507px;
+      line-height: 179.8%;
+      margin-bottom: 32px;
+    }
+  }
+}
+.modelContainer__card:nth-child(4) {
+  border-radius: 10px;
+  border: 1px solid $darkGray;
+  // padding: 36px 60px 32px 23px;
+  padding: 25px 0 0 23px;
+  background-color: $white;
+  @include mq {
+    border: 2px solid #adadad6b;
+    // padding: 33.24px 27px 31px 28px;
+    padding: 33px 33px 0 23px;
+  }
+  h3 {
+    font-weight: 700;
+    font-size: 14.0039px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    position: relative;
+    margin-bottom: 36px;
+    cursor: pointer;
+    &:hover {
+      color: $moderateCyan;
+    }
+    @include mq {
+      font-size: 16.1583px;
+      margin-bottom: 17.76px;
+    }
+    &::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      background-color: transparent;
+      position: absolute;
+      left: -40px;
+      border: 1px solid #b1b1b1;
+      border-radius: 50px;
+      display: block;
+    }
+  }
+  p {
+    font-weight: 400;
+    font-size: 14.0615px;
+    line-height: 172.3%;
+    color: $darkGray;
+    margin-bottom: 32px;
+    @include mq {
+      font-size: 15.0707px;
+      line-height: 179.8%;
+    }
+  }
+
+  .hiddenBox p {
+    margin-bottom: 0;
+  }
+}
+.modelContainer__card:not(:nth-child(7)) {
+  margin-bottom: 24px;
+  @include mq {
+    margin-bottom: 26px;
+  }
+}
+.modelContainer__card:not(:nth-child(4)) {
+  border-radius: 10px;
+  border: 1px solid $darkGray;
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  padding: 25px 0 0 23px;
+  @include mq {
+    border: 2px solid #adadad6b;
+    padding: 33px 33px 0 23px;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .span {
+    display: inline-block;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 8.73px;
+    margin-left: 38px;
+    margin-bottom: 23px;
+    cursor: pointer;
+    @include mq {
+      flex-direction: row;
+      justify-content: flex-start;
+      row-gap: 0;
+      column-gap: 18px;
+    }
+    h3 {
+      font-weight: 700;
+      font-size: 14.0039px;
+      width: fit-content;
+      &:hover {
+        color: $moderateCyan;
+      }
+      @include mq {
+        font-size: 15.8618px;
+      }
+    }
+    h4 {
+      font-weight: 500;
+      font-size: 13.9376px;
+      color: $moderateCyan;
+      width: fit-content;
+      @include mq {
+        font-size: 15.8797px;
+      }
+    }
+    &::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      background-color: transparent;
+      position: absolute;
+      border: 1px solid #b1b1b1;
+      border-radius: 50px;
+      display: block;
+      margin-left: -37px;
+    }
+  }
+  > p {
+    max-width: 233px;
+    font-weight: 400;
+    font-size: 14.0615px;
+    color: $darkGray;
+    margin-bottom: 32px;
+    @include mq {
+      font-size: 15.0444px;
+      line-height: 179.8%;
+      max-width: 95%;
+      margin-bottom: 28px;
+    }
+  }
+  h5 {
+    order: 1;
+    font-weight: 700;
+    font-size: 18.3158px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    @include mq {
+      order: -1;
+      position: absolute;
+      top: 32px;
+      right: 28px;
+    }
+    span {
+      font-weight: 500;
+      font-size: 15.1579px;
+      line-height: 19px;
+      color: $darkGray;
+    }
+  }
+}
+.hiddenBox {
+  position: relative;
+  order: 1;
+  &::before {
+    content: "";
+    width: calc(100% + 23px);
+    height: 1px;
+    background: $darkGray;
+    display: block;
+    position: absolute;
+    left: -23px;
+    @include mq {
+      height: 2px;
+      background-color: rgba(173, 173, 173, 0.4196078431);
+      width: 108.6%;
+    }
+  }
+}
+.hiddenBox {
+  padding-bottom: 24px;
+  opacity: 0;
+  display: none;
+  @include mq {
+    padding: 0 28px 24px;
+
+    align-items: baseline;
+  }
+  &.active {
+    opacity: 1;
+    display: block;
+    @include mq {
+      display: flex;
+    }
+  }
+  p {
+    margin-top: 24px;
+    font-size: 13.9069px;
+    line-height: 179.8%;
+    color: $darkGray;
+    text-align: left;
+    margin: 24px 0 17px;
+    @include mq {
+      margin: 0;
+      font-size: 15.0244px;
+      text-align: left;
+      margin-top: 26px;
+      display: inline-block;
+    }
+  }
+  input {
+    display: inline-block;
+    width: 99px;
+    padding: 15px 0 15px 41px;
+    border-radius: 23.5px;
+    font-weight: 700;
+    font-size: 14.1531px;
+    outline: none;
+    border: 1px solid $darkGray;
+    @include mq {
+      margin-left: auto;
+    }
+    &::placeholder {
+      color: $black;
+    }
+    &:focus,
+    &:active {
+      border: 1px solid $moderateCyan;
+    }
+  }
+
+  button {
+    font-size: 14.1531px;
+    line-height: 17px;
+    padding: 16px 25px;
+    border: none;
+    outline: none;
+    background-color: $moderateCyan;
+    border-radius: 23.5px;
+    color: $white;
+    display: inline-block;
+    margin-left: 17px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.5s ease-in-out;
+    &:hover {
+      background-color: $darkCyan;
+    }
+  }
+}
